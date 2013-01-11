@@ -58,3 +58,6 @@ CREATE TRIGGER TR_age
 BEFORE UPDATE OR INSERT
 ON INSCRIT FOR EACH ROW
 execute procedure F_age();
+--------------------------------------------------------------------------------
+--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-------------------
+--------------------------------------------------------------------------------
