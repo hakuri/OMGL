@@ -1,0 +1,160 @@
+INSERT INTO MONITEUR * VALUES (1,'Ange','Alceste','Arles','0476598465');
+INSERT INTO MONITEUR * VALUES (2,'Beri','Bernard','Bordaux','0476458798');
+INSERT INTO MONITEUR * VALUES (3,'Cipa','Charline','Chateau-Bois','0476542151');
+INSERT INTO MONITEUR * VALUES (4,'Drus','David','Domène','0487596842');
+INSERT INTO MONITEUR * VALUES (5,'Elit','Etienne','Echirolles','0476958474');
+INSERT INTO MONITEUR * VALUES (6,'Feru','Fabrice','Fontaine','0476986598');
+INSERT INTO MONITEUR * VALUES (7,'Gips','Gaetan','Grenoble','0476562312');
+INSERT INTO MONITEUR * VALUES (8,'Haul','Helene','Havre','0476946184');
+INSERT INTO MONITEUR * VALUES (9,'Iron','Isaac','Issoire','0478652375');
+INSERT INTO MONITEUR * VALUES (10,'Loso','Léa','Lille','0476872191');
+
+
+
+
+
+
+
+
+
+
+INSERT INTO ELEVE * VALUES (1,'','','','');
+INSERT INTO ELEVE * VALUES (2,'','','','');
+INSERT INTO ELEVE * VALUES (3,'','','','');
+INSERT INTO ELEVE * VALUES (4,'','','','');
+INSERT INTO ELEVE * VALUES (5,'','','','');
+INSERT INTO ELEVE * VALUES (6,'','','','');
+INSERT INTO ELEVE * VALUES (7,'','','','');
+INSERT INTO ELEVE * VALUES (8,'','','','');
+INSERT INTO ELEVE * VALUES (9,'','','','');
+INSERT INTO ELEVE * VALUES (10,'','','','');
+INSERT INTO ELEVE * VALUES (11,'','','','');
+INSERT INTO ELEVE * VALUES (12,'','','','');
+INSERT INTO ELEVE * VALUES (13,'','','','');
+INSERT INTO ELEVE * VALUES (14,'','','','');
+INSERT INTO ELEVE * VALUES (15,'','','','');
+INSERT INTO ELEVE * VALUES (16,'','','','');
+INSERT INTO ELEVE * VALUES (17,'','','','');
+INSERT INTO ELEVE * VALUES (18,'','','','');
+INSERT INTO ELEVE * VALUES (19,'','','','');
+INSERT INTO ELEVE * VALUES (20,'','','','');
+INSERT INTO ELEVE * VALUES (21,'','','','');
+INSERT INTO ELEVE * VALUES (22,'','','','');
+INSERT INTO ELEVE * VALUES (23,'','','','');
+INSERT INTO ELEVE * VALUES (24,'','','','');
+INSERT INTO ELEVE * VALUES (25,'','','','');
+INSERT INTO ELEVE * VALUES (26,'','','','');
+INSERT INTO ELEVE * VALUES (27,'','','','');
+INSERT INTO ELEVE * VALUES (28,'','','','');
+INSERT INTO ELEVE * VALUES (29,'','','','');
+INSERT INTO ELEVE * VALUES (30,'','','','');
+INSERT INTO ELEVE * VALUES (31,'','','','');
+INSERT INTO ELEVE * VALUES (32,'','','','');
+INSERT INTO ELEVE * VALUES (33,'','','','');
+INSERT INTO ELEVE * VALUES (34,'','','','');
+INSERT INTO ELEVE * VALUES (35,'','','','');
+INSERT INTO ELEVE * VALUES (36,'','','','');
+INSERT INTO ELEVE * VALUES (37,'','','','');
+INSERT INTO ELEVE * VALUES (38,'','','','');
+INSERT INTO ELEVE * VALUES (39,'','','','');
+INSERT INTO ELEVE * VALUES (40,'','','','');
+INSERT INTO ELEVE * VALUES (41,'','','','');
+INSERT INTO ELEVE * VALUES (42,'','','','');
+INSERT INTO ELEVE * VALUES (43,'','','','');
+INSERT INTO ELEVE * VALUES (44,'','','','');
+INSERT INTO ELEVE * VALUES (45,'','','','');
+INSERT INTO ELEVE * VALUES (46,'','','','');
+INSERT INTO ELEVE * VALUES (47,'','','','');
+INSERT INTO ELEVE * VALUES (48,'','','','');
+INSERT INTO ELEVE * VALUES (49,'','','','');
+INSERT INTO ELEVE * VALUES (50,'','','','');
+
+
+
+
+
+
+
+
+
+
+INSERT INTO TYPECOURS * VALUES (1,'Alpin','Enfant','piou-piou');
+INSERT INTO TYPECOURS * VALUES (2,'Alpin','Enfant','ourson');
+INSERT INTO TYPECOURS * VALUES (3,'Alpin','Enfant','flocon');
+INSERT INTO TYPECOURS * VALUES (4,'Alpin','Enfant','étoile1');
+INSERT INTO TYPECOURS * VALUES (5,'Alpin','Enfant','étoile2');
+INSERT INTO TYPECOURS * VALUES (6,'Alpin','Enfant','étoile3');
+INSERT INTO TYPECOURS * VALUES (7,'Alpin','Enfant','étoile bronze');
+INSERT INTO TYPECOURS * VALUES (8,'Alpin','Enfant','étoile or');
+INSERT INTO TYPECOURS * VALUES (9,'Alpin','Enfant','compétition');
+INSERT INTO TYPECOURS * VALUES (10,'Alpin','Adulte','débutant');
+INSERT INTO TYPECOURS * VALUES (11,'Alpin','Adulte','classe1');
+INSERT INTO TYPECOURS * VALUES (12,'Alpin','Adulte','classe2');
+INSERT INTO TYPECOURS * VALUES (13,'Alpin','Adulte','classe3');
+INSERT INTO TYPECOURS * VALUES (14,'Alpin','Adulte','classe4');
+INSERT INTO TYPECOURS * VALUES (15,'Alpin','Adulte','classe4 hors-piste');
+INSERT INTO TYPECOURS * VALUES (16,'Snowboard','+8ans','débutant');
+INSERT INTO TYPECOURS * VALUES (17,'Snowboard','+8ans','snowboard1');
+INSERT INTO TYPECOURS * VALUES (18,'Snowboard','+8ans','snowboard2');
+INSERT INTO TYPECOURS * VALUES (19,'Snowboard','+8ans','snowboard3');
+INSERT INTO TYPECOURS * VALUES (20,'Snowboard','+8ans','compétition');
+
+
+
+
+
+
+
+
+
+
+INSERT INTO COURS * VALUES (1,'','','','');
+INSERT INTO COURS * VALUES (2,'','','','');
+INSERT INTO COURS * VALUES (3,'','','','');
+INSERT INTO COURS * VALUES (4,'','','','');
+INSERT INTO COURS * VALUES (5,'','','','');
+INSERT INTO COURS * VALUES (6,'','','','');
+INSERT INTO COURS * VALUES (7,'','','','');
+INSERT INTO COURS * VALUES (8,'','','','');
+INSERT INTO COURS * VALUES (9,'','','','');
+INSERT INTO COURS * VALUES (10,'','','','');
+INSERT INTO COURS * VALUES (11,'','','','');
+INSERT INTO COURS * VALUES (12,'','','','');
+INSERT INTO COURS * VALUES (13,'','','','');
+INSERT INTO COURS * VALUES (14,'','','','');
+INSERT INTO COURS * VALUES (15,'','','','');
+INSERT INTO COURS * VALUES (16,'','','','');
+INSERT INTO COURS * VALUES (17,'','','','');
+INSERT INTO COURS * VALUES (18,'','','','');
+INSERT INTO COURS * VALUES (19,'','','','');
+INSERT INTO COURS * VALUES (20,'','','','');
+
+
+
+
+
+
+
+
+
+
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+1
