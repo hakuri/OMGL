@@ -1,4 +1,4 @@
-CREATE TABLE MONITEUR (
+CREATE TABLE MONITEURS (
 	NumMono			integer		primary key,
 	Nom			varchar		,
 	Prenom			varchar		,

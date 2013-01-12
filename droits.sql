@@ -1,7 +1,11 @@
 --------------------------------------------------------------------------------
 --DROITS DE DIRECTEUR TECHNIQUE-------------------------------------------------
 --------------------------------------------------------------------------------
+CREATE VIEW V_profdispo AS SELECT NumMono FROM MONITEURS WHERE NumMono NOT IN ENSEIGNE;
 
+GRANT ALL ON TYPECOURS TO skivite;
+GRANT ALL ON MONITEURS TO skivite;
+GRANT ALL ON COURS TO skivite;
 --------------------------------------------------------------------------------
 --DROITS DE SECRETAIRE----------------------------------------------------------
 --------------------------------------------------------------------------------
