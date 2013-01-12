@@ -75,7 +75,7 @@ BEFORE INSERT
 ON INSCRIT FOR EACH ROW
 execute procedure F_courscapacite();
 --------------------------------------------------------------------------------
---UN PROF DOIT ETRE AFFECTER AU COURS POUR S'INSCRIRE---------------------------
+--UN PROF DOIT ETRE AFFECTE AU COURS POUR S'INSCRIRE----------------------------
 --------------------------------------------------------------------------------
 create function F_profaffecte() returns trigger as '
 begin
