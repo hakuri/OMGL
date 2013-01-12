@@ -59,5 +59,36 @@ BEFORE UPDATE OR INSERT
 ON INSCRIT FOR EACH ROW
 execute procedure F_age();
 --------------------------------------------------------------------------------
---XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-------------------
+--UN COURS NE PEUX AVOIR PLUS DE 12 ELEVES--------------------------------------
 --------------------------------------------------------------------------------
+create function F_courscapacite() returns trigger as '
+begin
+	if (count(NumEleve) from COURS where NumCours=NEW.NumCours group by NumCours)>=12 
+	then raise exception ''Désolé mais ce cours est déjà plein !''
+	end if;
+end;
+return new;
+'language'plpgsql'
+
+CREATE TRIGGER TR_courscapacite
+BEFORE INSERT
+ON INSCRIT FOR EACH ROW
+execute procedure F_courscapacite();
+--------------------------------------------------------------------------------
+--UN PROF DOIT ETRE AFFECTER AU COURS POUR S'INSCRIRE---------------------------
+--------------------------------------------------------------------------------
+create function F_profaffecte() returns trigger as '
+begin
+	if New.Numcours NOT IN ENSEIGNE then raise exception ''Désolé, aucun professeur n''''est affecté à ce cours!'';
+	end if;
+end;
+return new;
+'language'plpgsql'
+
+CREATE TRIGGER TR_profaffecte
+BEFORE INSERT
+ON INSCRIT FOR EACH ROW
+execute procedure F_profaffecte();
+
+
+
