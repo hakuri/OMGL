@@ -1,15 +1,16 @@
 CREATE TABLE MONITEURS (
 	NumMono			integer		primary key,
-	Nom			varchar		,
+	Nom				varchar		,
 	Prenom			varchar		,
 	Adresse			varchar		,
 	Telephone		integer		
 );
 CREATE TABLE ELEVE (
 	NumEleve		integer		primary key,
-	Nom			varchar		,
+	Nom				varchar		,
 	Prenom			varchar		,
-	AdresseStation		varchar		,
+	DateNaissance	date		,
+	AdresseStation	varchar		,
 	Mobile			integer		
 );
 CREATE TABLE TYPECOURS (
