@@ -1,3 +1,4 @@
+test
 INSERT INTO MONITEUR * VALUES (1,'Ange','Alceste','Arles','0476598465');
 INSERT INTO MONITEUR * VALUES (2,'Beri','Bernard','Bordaux','0476458798');
 INSERT INTO MONITEUR * VALUES (3,'Cipa','Charline','Chateau-Bois','0476542151');
