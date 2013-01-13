@@ -4,7 +4,7 @@ CREATE TABLE MONITEURS (
 	Prenom			varchar		,
 	Adresse			varchar		,
 	Telephone		integer		,
-	Spécialité		varchar		default alpin check(Spécialité IN('alpin','snowboard','freeride','freestyle','télémark','handiski'))
+	Specialite		varchar		default alpin check(Specialite IN('alpin','snowboard','freeride','freestyle','télémark','handiski'))
 );
 CREATE TABLE ELEVE (
 	NumEleve		integer		primary key,
