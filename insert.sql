@@ -1,6 +1,7 @@
 ---------------------------------------------------------------------------------------------
 -- MONITEUR - (NumMono, Nom, Prenom, Adresse, Telephone )------------------------------------
 ---------------------------------------------------------------------------------------------
+
 INSERT INTO MONITEUR * VALUES (1,'Ange','Alceste','Arles','0476598465');
 INSERT INTO MONITEUR * VALUES (2,'Beri','Bernard','Bordaux','0476458798');
 INSERT INTO MONITEUR * VALUES (3,'Cipa','Charline','Chateau-Bois','0476542151');
@@ -187,6 +188,7 @@ INSERT INTO COURS * VALUES (30,'12/01/2013','13/01/2013','6','Risoul','07:00','1
 ---------------------------------------------------------------------------------------------
 -- ENSEIGNE - (NumCours, NumMono) -----------------------------------------------------------
 ---------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 INSERT INTO ENSEIGNE * VALUES (1,1);
 INSERT INTO ENSEIGNE * VALUES (2,2);
 INSERT INTO ENSEIGNE * VALUES (3,3);
@@ -217,3 +219,25 @@ INSERT INTO ENSEIGNE * VALUES (27,6);
 INSERT INTO ENSEIGNE * VALUES (28,9);
 INSERT INTO ENSEIGNE * VALUES (29,19);
 INSERT INTO ENSEIGNE * VALUES (30,20);
+=======
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+INSERT INTO ENSEIGNE * VALUES (,);
+
+>>>>>>> 2db59eeb58bc863a46795abd2653e3136a13d552

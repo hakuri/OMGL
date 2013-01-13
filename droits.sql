@@ -17,3 +17,9 @@ GRANT INSERT ON INSCRIT TO tapevite;
 --------------------------------------------------------------------------------
 --DROITS DE MONITEUR------------------------------------------------------------
 --------------------------------------------------------------------------------
+CREATE VIEW V_planningmono AS SELECT * FROM COURS WHERE NumCours=(SELECT NumCours FROM ENSEIGNE WHERE NumMono=(SELECT NumMono FROM MONITEURS WHERE Nom=Current.user));
+CREATE VIEW V_listeelevesmono AS SELECT * FROM ELEVES WHERE NumEleve=(select NumEleve FROM INSCRIT WHERE NumCours=(SELECT NumCours FROM ENSEIGNE WHERE NumMono=(SELECT NumMono FROM MONITEURS WHERE Nom=Current.user;)));
+GRANT SELECT ON V_planningmono TO killy;
+GRANT SELECT ON V_listeelevesmono TO killy;
+GRANT SELECT ON V_listeelevesmono TO alphand;
+GRANT SELECT ON V_planningmono TO alphand;

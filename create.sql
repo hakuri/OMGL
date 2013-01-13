@@ -1,15 +1,17 @@
 CREATE TABLE MONITEURS (
 	NumMono			integer		primary key,
-	Nom			varchar		,
+	Nom				varchar		,
 	Prenom			varchar		,
 	Adresse			varchar		,
-	Telephone		integer		
+	Telephone		integer		,
+	Specialite		varchar		default alpin check(Specialite IN('alpin','snowboard','freeride','freestyle','télémark','handiski'))
 );
 CREATE TABLE ELEVE (
 	NumEleve		integer		primary key,
-	Nom			varchar		,
+	Nom				varchar		,
 	Prenom			varchar		,
-	AdresseStation		varchar		,
+	DateNaissance	date		,
+	AdresseStation	varchar		,
 	Mobile			integer		
 );
 CREATE TABLE TYPECOURS (
