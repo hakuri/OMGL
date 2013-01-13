@@ -89,6 +89,36 @@ CREATE TRIGGER TR_profaffecte
 BEFORE INSERT
 ON INSCRIT FOR EACH ROW
 execute procedure F_profaffecte();
+--------------------------------------------------------------------------------
+--VERIFIER DATE DEBUT<DATE FIN--------------------------------------------------
+--------------------------------------------------------------------------------
+create function F_dateanterieure() returns triggers as '
+begin
+	if NEW.DateDebut>New.DateFin then raise exception ''Le cours ne peux commencer après avoir été terminé!''
+	end if;
+end;
+return new;
+'language'plpgsql'
 
+CREATE TRIGGER TR_dateanterieur
+BEFORE INSERT
+ON COURS FOR EACH ROW
+execute procedure F_dateanterieur();
+--------------------------------------------------------------------------------
+--VERIFIER HEURE DEBUT<HEURE FIN------------------------------------------------
+--------------------------------------------------------------------------------
+create function F_dateanterieure() returns triggers as '
+begin
+	if NEW.HeureDeb>NEW.HeureFin then raise exception ''Le cours ne peux commencer après avoir été terminé!''
+	end if;
+end;
+return new;
+'language'plpgsql'
 
-
+CREATE TRIGGER TR_dateanterieur
+BEFORE INSERT
+ON COURS FOR EACH ROW
+execute procedure F_dateanterieur();
+--------------------------------------------------------------------------------
+--SPECIALITE--------------------------------------------------------------------
+--------------------------------------------------------------------------------

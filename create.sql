@@ -3,7 +3,8 @@ CREATE TABLE MONITEURS (
 	Nom				varchar		,
 	Prenom			varchar		,
 	Adresse			varchar		,
-	Telephone		integer		
+	Telephone		integer		,
+	Spécialité		varchar		default alpin check(Spécialité IN('alpin','snowboard','freeride','freestyle','télémark','handiski'))
 );
 CREATE TABLE ELEVE (
 	NumEleve		integer		primary key,
