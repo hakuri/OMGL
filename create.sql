@@ -45,12 +45,4 @@ CREATE TABLE SPECIALITE (
 	Specialite		varchar		check(Specialite IN('alpin','snowboard','freeride','freestyle','handyski','telemark')),
 	primary key(NumMono,Specialite)
 );
-CREATE TABLE COURSPARTICULIERS (
-	NumCours		integer		primary key,
-	DateDebut		date		,
-	DateFin			date		,
-	Spécialité		varchar		,
-	LieuRDV			varchar		,
-	HeureDeb		time		,
-	HeurFin			time		
-	);
+
