@@ -5,33 +5,33 @@
 --------------------------------------------------------------------------------
 create function F_niveau() returns trigger as '
 begin
-	if NEW.Discipline = ''Alpin'' then
-		if NEW.Public = ''Enfant'' then
-			if NEW.Niveau NOT IN (
-''piou-piou'',''ourson'',''flocon'',''étoile1'',''étoile2'',''étoile3'',''étoile bronze'',''étoile or'',''compétition'') then
-			raise exception ''Le niveau ne correspond pas à la discipline demandée!'';
+	if (SELECT Discipline FROM TYPECOURS WHERE NumType=NEW.NumType) = ''Alpin'' then
+		if (SELECT Public FROM TYPECOURS WHERE NumType=NEW.NumType) = ''Enfant'' then
+			if (SELECT Niveau FROM TYPECOURS WHERE NumType=NEW.NumType) NOT IN (
+''piou-piou'',''ourson'',''flocon'',''etoile1'',''etoile2'',''etoile3'',''etoile bronze'',''etoile or'',''competition'') then
+			raise exception ''Le niveau ne correspond pas à la discipline demandee!'';
 			end if;		
-		elsif NEW.Public = ''Adulte'' then
-			if NEW.Niveau NOT IN (''débutant'',''classe1'',''classe2'',''classe3'',''classe4'',''classe4 hors-piste'') then
-			raise exception ''Le niveau ne correspond pas à la discipline demandée!'';
+		elsif (SELECT Public FROM TYPECOURS WHERE NumType=NEW.NumType) = ''Adulte'' then
+			if(SELECT Niveau FROM TYPECOURS WHERE NumType=NEW.NumType) NOT IN (''debutant'',''classe1'',''classe2'',''classe3'',''classe4'',''classe4 hors-piste'') then
+			raise exception ''Le niveau ne correspond pas à la discipline demandee!'';
 			end if;
-		else raise exception ''Le public ne correspond pas à la discipline demandée!'';
+		else raise exception ''Le public ne correspond pas à la discipline demandee!'';
 		end if;
-	elsif NEW.Discipline = ''Snowboard'' then
-		if NEW.Public = ''+8ans'' then
-			if NEW.Niveau NOT IN (''débutant'',''snowboard1'',''snowboard2'',''snowboard3'',''compétition'') then
-			raise exception ''Le niveau ne correspond pas à la discipline demandée!'';
+	elsif (SELECT Discipline FROM TYPECOURS WHERE NumType=NEW.NumType) = ''Snowboard'' then
+		if (SELECT Public FROM TYPECOURS WHERE NumType=NEW.NumType) = ''+8ans'' then
+			if (SELECT Niveau FROM TYPECOURS WHERE NumType=NEW.NumType) NOT IN (''debutant'',''snowboard1'',''snowboard2'',''snowboard3'',''competition'') then
+			raise exception ''Le niveau ne correspond pas à la discipline demandee!'';
 			end if;
-		else raise exception ''Le public ne correspond pas à la discipline demandée!'';
+		else raise exception ''Le public ne correspond pas à la discipline demandee!'';
 		end if;
-	else raise exception ''La discipline demandée n''''éxiste pas!'';
+	else raise exception ''La discipline demandee n''''existe pas!'';
 	end if;
-end;
-return new;
+return new;end;
 
-'language'plpgsql'
 
-CREATE TRIGGER TR_cathegorie-niveau
+'language'plpgsql';
+
+CREATE TRIGGER TR_niveau
 BEFORE UPDATE OR INSERT 
 ON COURS FOR EACH ROW 
 execute  procedure F_niveau();
@@ -40,19 +40,20 @@ execute  procedure F_niveau();
 --------------------------------------------------------------------------------
 create function F_age() returns trigger as '
 begin
-	if (select Public from TYPECOURS where NumType=(select NumType FROM COURS where New.NumCours = numcours)) = ''Enfant'' 
-		if (extract year (currentdate()))-(extract year (select DateNaissance from ELEVE where NumEleve=NEW.NumEleve))>18 then raise exception ''Desolé mais vous n''''etes plus un enfant!''
+	if (select Public from TYPECOURS where NumType=(select NumType FROM COURS where New.NumCours = numcours)) = ''Enfant'' then 
+		if (extract (year from currentdate()))-(extract (year from (select DateNaissance from ELEVE where NumEleve =NEW.NumEleve)))>18 then raise exception ''Desole mais vous n''''etes plus un enfant!'';
 		end if;
-	elsif (select Public from TYPECOURS where NumType=(select NumType FROM COURS where New.NumCours = numcours)) = ''Adulte''
-		if (extract year (currentdate()))-(extract year (select DateNaissance from ELEVE where NumEleve=NEW.NumEleve))<18 then raise exception ''Desolé mais vous n''''etes encore un adulte!''
+	elsif (select Public from TYPECOURS where NumType=(select NumType FROM COURS where New.NumCours = numcours)) = ''Adulte'' then
+		if (extract (year from currentdate()))-(extract (year from(select DateNaissance from ELEVE where NumEleve=NEW.NumEleve)))<18 then raise exception ''Desole mais vous n''''etes encore un adulte!'';
 		end if;
-	elsif (select Public from TYPECOURS where NumType=(select NumType FROM COURS where New.NumCours = numcours)) = ''+8ans''
-		if (extract year (currentdate()))-(extract year (select DateNaissance from ELEVE where NumEleve=NEW.NumEleve))<8 then raise exception ''Desolé mais vous n''''avez pas encore 8 ans!''
+	elsif (select Public from TYPECOURS where NumType=(select NumType FROM COURS where New.NumCours = numcours)) = ''+8ans'' then
+		if (extract (year from currentdate()))-(extract (year from (select DateNaissance from ELEVE where NumEleve=NEW.NumEleve)))<8 then raise exception ''Desole mais vous n''''avez pas encore 8 ans!'';
 		end if;
 	end if;
-end;
 return new;
-'language'plpgsql'
+end;
+
+'language'plpgsql';
 
 CREATE TRIGGER TR_age
 BEFORE UPDATE OR INSERT
@@ -63,12 +64,13 @@ execute procedure F_age();
 --------------------------------------------------------------------------------
 create function F_courscapacite() returns trigger as '
 begin
-	if (count(NumEleve) from COURS where NumCours=NEW.NumCours group by NumCours)>=12 
-	then raise exception ''Désolé mais ce cours est déjà plein !''
+	if (select count(NumEleve) from COURS where NumCours=NEW.NumCours group by NumCours)>=12 
+	then raise exception ''Desole mais ce cours est dejà plein !'';
 	end if;
-end;
 return new;
-'language'plpgsql'
+end;
+
+'language'plpgsql';
 
 CREATE TRIGGER TR_courscapacite
 BEFORE INSERT
@@ -79,11 +81,12 @@ execute procedure F_courscapacite();
 --------------------------------------------------------------------------------
 create function F_profaffecte() returns trigger as '
 begin
-	if New.Numcours NOT IN ENSEIGNE then raise exception ''Désolé, aucun professeur n''''est affecté à ce cours!'';
+	if New.Numcours NOT IN (select * from ENSEIGNE) then raise exception ''Desole, aucun professeur n''''est affecte à ce cours!'';
 	end if;
-end;
 return new;
-'language'plpgsql'
+end;
+
+'language'plpgsql';
 
 CREATE TRIGGER TR_profaffecte
 BEFORE INSERT
@@ -92,43 +95,60 @@ execute procedure F_profaffecte();
 --------------------------------------------------------------------------------
 --VERIFIER DATE DEBUT<DATE FIN--------------------------------------------------
 --------------------------------------------------------------------------------
-create function F_dateanterieure() returns triggers as '
+create function F_dateanterieure() returns trigger as '
 begin
-	if NEW.DateDebut>New.DateFin then raise exception ''Le cours ne peux commencer après avoir été terminé!''
+	if NEW.DateDebut>New.DateFin then raise exception ''Le cours ne peux commencer apres avoir ete termine!'';
 	end if;
+	return new;
 end;
-return new;
-'language'plpgsql'
 
-CREATE TRIGGER TR_dateanterieur
+'language'plpgsql';
+
+CREATE TRIGGER TR_dateanterieure
 BEFORE INSERT
 ON COURS FOR EACH ROW
-execute procedure F_dateanterieur();
+execute procedure F_dateanterieure();
 --------------------------------------------------------------------------------
 --VERIFIER HEURE DEBUT<HEURE FIN------------------------------------------------
 --------------------------------------------------------------------------------
-create function F_dateanterieure() returns triggers as '
+create function F_heureanterieure() returns trigger as '
 begin
-	if NEW.HeureDeb>NEW.HeureFin then raise exception ''Le cours ne peux commencer après avoir été terminé!''
+	if NEW.DateDebut=New.DateFin then
+		if NEW.HeureDeb>NEW.HeureFin then raise exception ''Le cours ne peux commencer apres avoir ete termine!'';
+		end if;
 	end if;
-end;
 return new;
-'language'plpgsql'
+end;
 
-CREATE TRIGGER TR_dateanterieur
+'language'plpgsql';
+
+CREATE TRIGGER TR_heureanterieure
 BEFORE INSERT
 ON COURS FOR EACH ROW
-execute procedure F_dateanterieur();
+execute procedure F_heureanterieure();
 --------------------------------------------------------------------------------
 --SPECIALITE--------------------------------------------------------------------
 --------------------------------------------------------------------------------
+<<<<<<< HEAD
 create function F_specialite() returns triggers as '
 begin
 end;
 return new;
 'language'plpgsql'
+=======
+create function F_specialite() returns trigger as '
+begin
+return new;
+end;
+
+'language'plpgsql'; 
+>>>>>>> d87e731ae6a5e09f09c924ada038bb7fce90746a
 
 CREATE TRIGGER TR_specialite
 BEFORE INSERT
 ON COURS FOR EACH ROW
+<<<<<<< HEAD
 execute procedure F_specialite();
+=======
+execute procedure F_specialite();
+>>>>>>> d87e731ae6a5e09f09c924ada038bb7fce90746a
