@@ -122,3 +122,13 @@ execute procedure F_dateanterieur();
 --------------------------------------------------------------------------------
 --SPECIALITE--------------------------------------------------------------------
 --------------------------------------------------------------------------------
+create function F_specialite() returns triggers as '
+begin
+end;
+return new;
+'language'plpgsql'
+
+CREATE TRIGGER TR_specialite
+BEFORE INSERT
+ON COURS FOR EACH ROW
+execute procedure F_specialite();

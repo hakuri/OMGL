@@ -43,3 +43,12 @@ CREATE TABLE INSCRIT (
 	foreign key (NumEleve) REFERENCES ELEVE(NumEleve),
 	foreign key (NumCours) REFERENCES COURS(NumCours)
 );
+CREATE TABLE COURSPARTICULIERS (
+	NumCours		integer		primary key,
+	DateDebut		date		,
+	DateFin			date		,
+	Spécialité		varchar		,
+	LieuRDV			varchar		,
+	HeureDeb		time		,
+	HeurFin			time		
+	);
