@@ -1,16 +1,16 @@
 CREATE TABLE MONITEURS (
 	NumMono			integer		primary key,
-	Nom			varchar		,
+	Nom				varchar		,
 	Prenom			varchar		,
 	Adresse			varchar		,
 	Telephone		integer		
 );
 CREATE TABLE ELEVE (
 	NumEleve		integer		primary key,
-	Nom			varchar		,
+	Nom				varchar		,
 	Prenom			varchar		,
-	DateNaissance		date		,
-	AdresseStation		varchar		,
+	DateNaissance	date		,
+	AdresseStation	varchar		,
 	Mobile			integer		
 );
 CREATE TABLE TYPECOURS (
@@ -26,8 +26,7 @@ CREATE TABLE COURS (
 	NumType			integer		REFERENCES TYPECOURS(NumType),
 	LieuRDV			varchar		,
 	HeureDeb		time		,
-	HeureFin			time		,
-	Type			varchar check (Type IN('Collectif','Particulier'))
+	HeureFin		time		
 		
 );
 CREATE TABLE ENSEIGNE (
@@ -40,9 +39,5 @@ CREATE TABLE INSCRIT (
 	NumCours		integer		REFERENCES COURS(NumCours),
 	primary key(NumEleve,NumCours)
 );
-CREATE TABLE SPECIALITE (
-	NumMono			integer		REFERENCES MONITEURS(NumMono),
-	Specialite		varchar		check(Specialite IN('alpin','snowboard','freeride','freestyle','handyski','telemark')),
-	primary key(NumMono,Specialite)
-);
+
 

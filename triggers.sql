@@ -129,26 +129,16 @@ execute procedure F_heureanterieure();
 --------------------------------------------------------------------------------
 --SPECIALITE--------------------------------------------------------------------
 --------------------------------------------------------------------------------
-<<<<<<< HEAD
 create function F_specialite() returns triggers as '
 begin
-end;
-return new;
-'language'plpgsql'
-=======
-create function F_specialite() returns trigger as '
-begin
+	if Type
 return new;
 end;
 
-'language'plpgsql'; 
->>>>>>> d87e731ae6a5e09f09c924ada038bb7fce90746a
+'language'plpgsql'
+
 
 CREATE TRIGGER TR_specialite
 BEFORE INSERT
 ON COURS FOR EACH ROW
-<<<<<<< HEAD
 execute procedure F_specialite();
-=======
-execute procedure F_specialite();
->>>>>>> d87e731ae6a5e09f09c924ada038bb7fce90746a
