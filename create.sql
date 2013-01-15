@@ -41,8 +41,8 @@ CREATE TABLE INSCRIT (
 	primary key(NumEleve,NumCours)
 );
 CREATE TABLE SPECIALITE (	
-	NumMono		integer		REFERENCES ELEVE(NumMono),
-	Specialite	integer		,
+	NumMono		integer		REFERENCES MONITEURS(NumMono),
+	Specialite	varchar		,
 	primary key(NumMono,Specialite)
 );
 
