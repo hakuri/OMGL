@@ -5,6 +5,7 @@
 --------------------------------------------------------------------------------
 create function F_niveau() returns trigger as '
 begin
+if (SELECT Groupe FROM TYPECOURS WHERE NumType=NEW.NumType) = ''Collectif'' then
 	if (SELECT Discipline FROM TYPECOURS WHERE NumType=NEW.NumType) = ''Alpin'' then
 		if (SELECT Public FROM TYPECOURS WHERE NumType=NEW.NumType) = ''Enfant'' then
 			if (SELECT Niveau FROM TYPECOURS WHERE NumType=NEW.NumType) NOT IN (
@@ -26,6 +27,7 @@ begin
 		end if;
 	else raise exception ''La discipline demandee n''''existe pas!'';
 	end if;
+end if;
 return new;end;
 
 
@@ -33,7 +35,7 @@ return new;end;
 
 CREATE TRIGGER TR_niveau
 BEFORE UPDATE OR INSERT 
-ON COURS FOR EACH ROW 
+ON TYPECOURS FOR EACH ROW 
 execute  procedure F_niveau();
 --------------------------------------------------------------------------------
 --VERIFIER AGE PAR RAPPORT AU PUBLIC DU TYPE DE COURS DEMANDE-------------------
@@ -64,9 +66,14 @@ execute procedure F_age();
 --------------------------------------------------------------------------------
 create function F_courscapacite() returns trigger as '
 begin
-	if (select count(NumEleve) from COURS where NumCours=NEW.NumCours group by NumCours)>=12 
-	then raise exception ''Desole mais ce cours est dejà plein !'';
-	end if;
+	if (SELECT Groupe FROM TYPECOURS WHERE NumType=(SELECT NumType FROM COURS WHERE NumCours=NewNumCours))=''Collectif'' then
+		if (select count(NumEleve) from COURS where NumCours=NEW.NumCours group by NumCours)>=12 
+		then raise exception ''Desole mais ce cours est dejà plein !'';
+		end if;
+	elsif (SELECT Groupe FROM TYPECOURS WHERE NumType=(SELECT NumType FROM COURS WHERE NumCours=NewNumCours))=''Particulier'' then
+		if (select count(NumEleve) from COURS where NumCours=NEW.NumCours group by NumCours)>=3 
+		then raise exception ''Desole mais ce cours est dejà plein !'';
+		end if;
 return new;
 end;
 
@@ -131,7 +138,11 @@ execute procedure F_heureanterieure();
 --------------------------------------------------------------------------------
 create function F_specialite() returns triggers as '
 begin
-	if Type
+	if Type=''Particulier'' then
+		if Discipline = Specialite then
+		else raise exception ''Desolé ce cours pparticulier nécéssite un professeur spécalisé!'';
+		end f;
+	end if;
 return new;
 end;
 
@@ -140,5 +151,5 @@ end;
 
 CREATE TRIGGER TR_specialite
 BEFORE INSERT
-ON COURS FOR EACH ROW
+ON ENSEIGNE FOR EACH ROW
 execute procedure F_specialite();

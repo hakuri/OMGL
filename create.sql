@@ -15,6 +15,7 @@ CREATE TABLE ELEVE (
 );
 CREATE TABLE TYPECOURS (
 	NumType			integer		primary key,
+	Groupe			varchar		,
 	Discipline		varchar		,
 	Public			varchar	check(Public IN ('Adulte','Enfant','+8ans')),	
 	Niveau			varchar	
@@ -39,5 +40,9 @@ CREATE TABLE INSCRIT (
 	NumCours		integer		REFERENCES COURS(NumCours),
 	primary key(NumEleve,NumCours)
 );
-
+CREATE TABLE SPECIALITE (	
+	NumMono		integer		REFERENCES ELEVE(NumMono),
+	Specialite	integer		,
+	primary key(NumMono,Specialite)
+);
 
