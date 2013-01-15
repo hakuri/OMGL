@@ -62,7 +62,7 @@ BEFORE UPDATE OR INSERT
 ON INSCRIT FOR EACH ROW
 execute procedure F_age();
 --------------------------------------------------------------------------------
---UN COURS NE PEUX AVOIR PLUS DE 12 ELEVES--------------------------------------
+--UN COURS NE PEUX AVOIR PLUS DE 12/3 ELEVES--------------------------------------
 --------------------------------------------------------------------------------
 create function F_courscapacite() returns trigger as '
 begin
