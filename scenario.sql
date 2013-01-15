@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------
--- Scenario de démonstration projet OMGL --------------------------------
+-- Scenario de demonstration projet OMGL --------------------------------
 -------------------------------------------------------------------------
 
 -------------------------------------------------------------------------
@@ -9,14 +9,14 @@
 	-- Insert des informations sur les Types de Cours:
 		-- INSERT INTO TYPECOURS VALUES (1,'Alpin','Enfant','piou-piou');
 		
-	-- Supprime les Cours dispensés la semaine precedente:
+	-- Supprime les Cours dispenses la semaine precedente:
 		-- DELETE FROM COURS 
 		-- WHERE DateFin < 07/01/2013;
 		
-	-- Insert les Cours dispensés la semaine suivante:
+	-- Insert les Cours dispenses la semaine suivante:
 		-- INSERT INTO COURS VALUES (1,'07/01/2013','07/01/2013','1','Briancon','07:00','18:30','Particulier');
 		
-	-- Vérifie les Cours et les Moniteurs:
+	-- Verifie les Cours et les Moniteurs:
 		-- SELECT Nom, Prenom, Type, DateDebut, DateFin, LieuRDV
 		-- FROM COURS, MONITEURS
 		-- WHERE Type, DateDebut, DateFin, LieuRDV IN (SELECT Type, DateDebut, DateFin, LieuRDV
