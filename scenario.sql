@@ -61,4 +61,48 @@
 		-- FROM ELEVE;
 	
 	
+-------------------------------------------------------------------------
+-- Scenario 1: Un eleve s'inscrit a un cours collectif ------------------
+-------------------------------------------------------------------------
+
+Un eleve se presente devant la secretaire, elle lui demande donc son nom et son prénom (autres info si necessaire):
+	- Falcon Fanny (par exemple)
 	
+La secretaire recupere les autres infos sur cet eleve (en particulier NumEleve):
+	-- SELECT * FROM ELEVE WHERE Nom = 'Falcon' AND Prenom = 'Fanny';
+		-- NumEleve = 32
+
+Elle lui demande ensuite dans quelle discipline, a quel niveau et a quel type de cours cet eleve souhaite etre inscrit:
+	- Alpin, 2° etoile, collectif
+	
+La secretaire affiche la liste des cours disponibles:
+	-- SELECT * FROM COURS WHERE Type = 'Collectif' AND NumType IN (SELECT NumType FROM TYPECOURS WHERE Discipline = 'Alpin' AND Niveau = 'etoile2');
+****	peut etre un count < 12    ****	
+	-- Le Cours choisi est le n°5
+
+Une fois le cours choisi la secretaire inscrit l''eleve:
+
+	-- INSERT INTO INSCRIT VALUES (32,5);
+
+-------------------------------------------------------------------------
+-- Scenario 1: Un eleve s'inscrit a un cours particulier ----------------
+-------------------------------------------------------------------------
+
+Un eleve se presente devant la secretaire, elle lui demande donc son nom et son prénom (autres info si necessaire):
+	- Falcon Fanny (par exemple)
+	
+La secretaire recupere les autres infos sur cet eleve (en particulier NumEleve):
+	-- SELECT * FROM ELEVE WHERE Nom = 'Falcon' AND Prenom = 'Fanny';
+		-- NumEleve = 32
+		
+Elle lui demande ensuite dans quelle discipline, a quel niveau et a quel type de cours cet eleve souhaite etre inscrit:
+	- Alpin, 2° etoile, particulier
+
+La secretaire affiche la liste des cours disponibles:
+	-- SELECT * FROM COURS WHERE Type = 'Particulier' AND NumType IN (SELECT NumType FROM TYPECOURS WHERE Discipline = 'Alpin' AND Niveau = 'etoile2');
+****	peut etre un count < 12    ****	
+	-- Le Cours choisi est le n°26
+	
+Une fois le cours choisi la secretaire inscrit l''eleve:
+
+	-- INSERT INTO INSCRIT VALUES (32,26);
